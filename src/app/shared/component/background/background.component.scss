@@ -1,0 +1,12 @@
+.bg {
+    background-image: url("/assets/images/welcome.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+	
+  /* Preserve aspet ratio */
+  min-width: 100%;
+  min-height: 100%
+  }
