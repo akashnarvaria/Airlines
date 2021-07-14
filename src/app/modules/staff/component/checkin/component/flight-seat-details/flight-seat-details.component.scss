@@ -47,3 +47,9 @@
 .tab-btn{
     border:none;
 }
+
+@media (max-width: 800px) {
+    .col-lg-1,.col-md-1 {
+      flex: 30%;
+    }
+  }

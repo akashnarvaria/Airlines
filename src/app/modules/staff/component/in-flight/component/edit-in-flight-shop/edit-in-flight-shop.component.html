@@ -8,7 +8,7 @@
             routerLink="../../in-flight-shop/{{passengerDetails[index].id}}">GO BACK</button>
         <div class="col-lg-12 col-md-12 col-sm-12 mt-3">
             <div class="row">
-                <div class="col-lg-4" *ngFor="let item of flightShopDetails,let i=index">
+                <div class="col-lg-4" *ngFor="let item of flightShopDetails;let i=index">
                     <div class="card" style="width: 18rem;">
                         <img class="img-fluid" style="height: 300px;" src="{{item.itemLink}}">
                         <div class="card-body">
@@ -27,9 +27,7 @@
                                 <div class="form-group">
                                     <button class="btn btn-primary form-control" type="submit" [disabled]="!form.valid">Add to cart</button>
                                 </div>
-                               
                             </form>
-                            
                         </div>
                     </div>
                 </div>

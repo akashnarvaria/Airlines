@@ -14,6 +14,7 @@ passengerDetails:any=[];
 index:number;
 passengerShopDetail:any=[];
 editMode=false;
+itemIndex:number;
 
   constructor(private commonService:CommonService,private route:ActivatedRoute) { }
 
@@ -45,8 +46,9 @@ editMode=false;
     }
     return -1;
   }
-  editModeFunc(){
+  editModeFunc(index:number){
     this.editMode=true;
+    this.itemIndex=index;
   }
 
   editItem(form:NgForm,index:number){

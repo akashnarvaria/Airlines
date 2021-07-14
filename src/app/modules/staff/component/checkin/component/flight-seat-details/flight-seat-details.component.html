@@ -26,7 +26,7 @@
     <div class="row" *ngIf="seatStatus=='checkin'">
       <div class="col-md-8 col-lg-8 col-sm-8">
         <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1" *ngFor="let j of flightDetails">
+          <div class="col-lg-1 col-md-1" *ngFor="let j of flightDetails">
             <button (click)="passengerCheckinInFlight(j.sno)" [ngClass]="{'btn-checkin' : j.checkin==true, 
                   'btn-not-checkin' : j.checkin==false && j.booked==true,
                   'btn-not-booked':j.booked==false}" class="p-2 mb-4 seat">{{j.sno}}</button>
@@ -69,7 +69,7 @@
     <div class="row" *ngIf="seatStatus=='infants'">
       <div class="col-md-8 col-lg-8 col-sm-8">
         <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1" *ngFor="let j of flightDetails">
+          <div class="col-lg-1 col-md-1" *ngFor="let j of flightDetails">
             <button [ngClass]="{'btn-checkin' : j.infants==true, 
                 'btn-not-checkin' : j.infants==false && j.booked==true,
                 'btn-not-booked':j.booked==false}" class="p-2 mb-4 seat">{{j.sno}}</button>
@@ -112,7 +112,7 @@
     <div class="row" *ngIf="seatStatus=='wheelchair'">
       <div class="col-md-8 col-lg-8 col-sm-8">
         <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1" *ngFor="let j of flightDetails">
+          <div class="col-lg-1 col-md-1" *ngFor="let j of flightDetails">
             <button [ngClass]="{'btn-checkin' : j.wheelchair==true, 
                 'btn-not-checkin' : j.wheelchair==false && j.booked==true,
                 'btn-not-booked':j.booked==false}" class="p-2 mb-4 seat">{{j.sno}}</button>
@@ -155,7 +155,7 @@
     <div class="row" *ngIf="seatStatus=='meal'">
       <div class="col-md-8 col-lg-8 col-sm-8">
         <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1" *ngFor="let j of flightDetails">
+          <div class="col-lg-1 col-md-1" *ngFor="let j of flightDetails">
             <button [ngClass]="{'btn-checkin' : j.meal==true, 
                 'btn-not-checkin' : j.meal==false && j.booked==true,
                 'btn-not-booked':j.booked==false}" class="p-2 mb-4 seat">{{j.sno}}</button>

@@ -17,11 +17,11 @@
                           <h2 class="card-title">{{item.item | titlecase}}</h2>
                           <p class="card-text">Price : {{item.price}}</p>
                           <p>Quantity : {{item.quantity}}</p>
-                          <div *ngIf="!editMode">
-                            <button class="btn btn-outline-primary" (click)="editModeFunc()">Edit Quantity</button>&nbsp;
+                          <div *ngIf="!editMode || itemIndex!=i">
+                            <button class="btn btn-outline-primary" (click)="editModeFunc(i)">Edit Quantity</button>&nbsp;
                             <button class="btn btn-outline-danger" (click)="removeItem(i)">Remove</button>
                           </div>
-                          <div *ngIf="editMode">
+                          <div *ngIf="editMode && itemIndex==i">
                             <form (ngSubmit)="editItem(form,i)" #form="ngForm">
                                 <div class="form-group">
                                     <input 

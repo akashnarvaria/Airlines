@@ -1,0 +1,53 @@
+{
+  "$schema": "./node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "app",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/*.js"
+        ]
+      }
+    },
+    {
+      "name": "assets",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": [
+          "/assets/**",
+          "/*.(eot|svg|cur|jpg|png|webp|gif|otf|ttf|woff|woff2|ani)"
+        ],
+        "urls": [
+          "https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+          
+        ]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "API",
+      "urls": [
+        "https://airlines-d4a3f-default-rtdb.firebaseio.com/flight.json",
+        "https://airlines-d4a3f-default-rtdb.firebaseio.com/passenger.json",
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZsIF3etNReFdcphEOKK57jAXFXoB2p8",
+          "https://airlines-d4a3f-default-rtdb.firebaseio.com/userRoles.json",
+          "https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=AIzaSyCIZsIF3etNReFdcphEOKK57jAXFXoB2p8",
+          "https://identitytoolkit.googleapis.com/v1/accounts:sendOobCode?key=AIzaSyCIZsIF3etNReFdcphEOKK57jAXFXoB2p8"
+      ],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "6h",
+        "timeout": "10s",
+        "strategy": "freshness"
+      }
+    }
+  ]
+}

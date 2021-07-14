@@ -79,9 +79,32 @@
   </div>
   <div class="container-fluid" *ngIf="change_Seat">
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-8">
         <div class="row">
-          <div class="col-lg-1 col-md-1 col-sm-1" *ngFor="let j of flightDetail"><button (click)="changeSeatInPassenger(j.sno)"   [ngClass]="j.available===true?'btn-available':'btn-booked'" class="p-2 mb-4 seat">{{j.sno}}</button></div>
+          <div class="col-lg-1 col-md-1" *ngFor="let j of flightDetail"><button (click)="changeSeatInPassenger(j.sno)"   [ngClass]="j.available===true?'btn-available':'btn-booked'" class="p-2 mb-4 seat">{{j.sno}}</button></div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h3 class="card-title">SeatMap Key</h3>
+            <div class="row">
+              <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="booked-key"></div>
+              </div>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <p style="text-align: left;">Booked</p> 
+              </div>
+            </div>
+            <div class="row mt-3">
+              <div class="col-lg-2 col-md-2 col-sm-2">
+                <div class="not-booked-key"></div>
+              </div>
+              <div class="col-lg-10 col-md-10 col-sm-10">
+                <p style="text-align: left;">Not Booked</p> 
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

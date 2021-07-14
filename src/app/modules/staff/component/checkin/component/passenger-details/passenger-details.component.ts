@@ -174,7 +174,9 @@ pId:number;
         
       }
     }
-    this.commonService.passengerCheckinInPassenger(this.passengerDetail).subscribe();
+    this.commonService.passengerCheckinInPassenger(this.passengerDetail).subscribe(()=>{
+      alert("Seat changed successfully");
+    });
   }
   
   changeSeatInFlight(flightId:number,oldSeat:string,newSeat:string,infants:boolean,wheelchair:boolean){

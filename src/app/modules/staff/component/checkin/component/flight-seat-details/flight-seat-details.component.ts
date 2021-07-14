@@ -57,7 +57,15 @@ isLoading=false;
         this.passengerDetail[i].checkin=this.checkin;
       }
     }
-    this.commonService.passengerCheckinInPassenger(this.passengerDetail).subscribe();
+    this.commonService.passengerCheckinInPassenger(this.passengerDetail).subscribe(()=>{
+      if(this.checkin){
+        alert("Successfully checked in");
+      }
+      else{
+        alert("successfully undo checkin");
+      }
+      
+    });
   }
 
   passengerCheckinInFlight(seatNo:string){
