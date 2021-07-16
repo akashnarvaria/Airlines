@@ -38,50 +38,6 @@ export class AuthComponent implements OnInit, OnDestroy {
       return;
     }
     this.store.dispatch(new AuthActions.UserRole({email:form.value.email,password:form.value.password,role:role}));
-    //   this.store.dispatch(new AuthActions.LoginStart({email:form.value.email,password:form.value.password,role:role}));
-    
-    // this.authService.login(form.value.email,form.value.password,role).subscribe(resData=>{
-    //   this.authService.userRole().subscribe(data=>{
-    //     let userData=JSON.parse(JSON.stringify(data));
-    //     let loggedIn=false;
-    //     for(let i=0;i<userData.length;i++){
-    //       //console.log(userData[i].email+" "+userData[i].role);
-    //       console.log(resData.email+' '+userData[i].email+''+userData[i].role);
-    //       if(resData.email===userData[i].email && userData[i].role===role){
-    //         this.authService.role.next(role);
-    //         localStorage.setItem('role',JSON.stringify(role));
-    //         if(role=='staff'){
-    //           this.router.navigate(['/staff']);
-    //         }
-            
-    //         if(role=='admin'){
-    //           this.router.navigate(['/admin']);
-    //         }
-
-            
-    //         i=userData.length;
-    //         loggedIn=true;
-    //         this.isLoading=false;
-    //       }
-    //       else{
-    //         this.error='Email does not Exist'
-    //       }
-    //     }
-    //     if(!loggedIn){
-    //       //this.authService.user.next(null);
-    //       this.store.dispatch(new AuthActions.Logout());
-    //       localStorage.removeItem('userData');
-    //       this.isLoading=false;
-    //     }
-    //   },errorResp=>{
-    //     this.error=errorResp;
-    //     this.isLoading=false;
-    //   });
-      
-    // },errorRes=>{
-    //   this.error=errorRes;
-    //   this.isLoading=false;
-    // });
     form.reset();
   }
 
@@ -97,7 +53,6 @@ export class AuthComponent implements OnInit, OnDestroy {
         let userExist=JSON.parse(JSON.stringify(data));
         let loggedIn=false;
         for(let i=0;i<userExist.length;i++){
-          //console.log(userData[i].email+" "+userData[i].role);
           if(user.email===userExist[i].email && userExist[i].role===role){
             this.authService.googleSignIn(user.idToken).subscribe(res=>{
               console.log(res);

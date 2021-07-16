@@ -23,4 +23,33 @@ describe('EditFlightMealComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call  getFlightDetails() method', () => {
+    spyOn(component, 'getFlightDetails').and.callThrough();
+    component.getFlightDetails();
+    fixture.detectChanges();
+    expect(component.getFlightDetails).toHaveBeenCalled();
+  });
+
+  it('should call  getIndex() method', () => {
+    const fId=0;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(fId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  updatePassengerDetail() method', () => {
+    const id=0;
+    spyOn(component, 'updatePassengerDetail').and.callThrough();
+    component.updatePassengerDetail(id);
+    fixture.detectChanges();
+    expect(component.updatePassengerDetail).toHaveBeenCalled();
+  });
+
+  it('should call  editMeal() method', () => {
+    spyOn(component, 'editMeal').and.callThrough();
+    component.editMeal();
+    fixture.detectChanges();
+    expect(component.editMeal).toHaveBeenCalled();
+  });
 });

@@ -32,65 +32,7 @@ private _tokenExpiratioTimer:any;
   setRole(role:string){
     this.role.next(role);
   }
-
-  // login(email:string,password:string,role:string){
-  //   return this.httpClient.post<AuthResponseData>('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyCIZsIF3etNReFdcphEOKK57jAXFXoB2p8',{
-  //     email:email,
-  //     password:password,
-  //     returnSecureToken:true
-  //   }).pipe(catchError(this.handleError),
-  //     tap(resData=>{
-  //     this.handleAuthentication(resData.email,resData.localId,resData.idToken,+resData.expiresIn,role);
-  //   }));
-  // }
-
-  // autoLogin(){
-  //   const role:string=JSON.parse(localStorage.getItem('role'));
-  //   const userData:{
-  //     email:string;
-  //     id:string;
-  //     _token:string;
-  //     _tokenExpirationDate:string;
-  //   }=JSON.parse(localStorage.getItem('userData'));
-  //   if(!userData){
-  //     return;
-  //   }
-  //   const loadedUser=new User(
-  //     userData.email,
-  //     userData.id,
-  //     userData._token,
-  //     new Date(userData._tokenExpirationDate));
-
-  //     if(loadedUser.token){
-  //       this.role.next(role);
-  //       //this.user.next(loadedUser);
-  //       this.store.dispatch(new AuthActions.Login({
-  //         email:loadedUser.email,
-  //         userId:loadedUser.id,
-  //         token:loadedUser.token,
-  //         expirationDate:new Date(userData._tokenExpirationDate),
-  //         role:role
-  //       })
-  //       );
-  //       const expirationDuration=new Date(userData._tokenExpirationDate).getTime()-new Date().getTime();
-        
-  //       this.autoLogout(expirationDuration);
-  //     }
-  // }
-
-  // logout(){
-  //   //this.user.next(null);
-  //   this.role.next(null);
-  //   this.store.dispatch(new AuthActions.Logout());
-  //   this.router.navigate(['/auth']);
-  //   localStorage.removeItem('userData');
-  //   localStorage.removeItem('role');
-  //   if(this._tokenExpiratioTimer){
-  //     clearTimeout(this._tokenExpiratioTimer);
-  //   }
-  //   this._tokenExpiratioTimer=null;
-  // }
-
+  
   autoLogout(expirationDuration:number){
     this._tokenExpiratioTimer=setTimeout(()=>{
       //this.logout();

@@ -26,4 +26,11 @@ describe('ManageFlightComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call  applyFilter() method', () => {
+    spyOn(component, 'applyFilter').and.callThrough();
+    component.applyFilter();
+    fixture.detectChanges();
+    expect(component.applyFilter).toHaveBeenCalled();
+  });
 });

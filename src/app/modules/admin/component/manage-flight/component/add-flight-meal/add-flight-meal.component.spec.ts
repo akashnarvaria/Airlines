@@ -22,4 +22,26 @@ describe('AddFlightMealComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call  getFlightDetails() method', () => {
+    spyOn(component, 'getFlightDetails').and.callThrough();
+    component.getFlightDetails();
+    fixture.detectChanges();
+    expect(component.getFlightDetails).toHaveBeenCalled();
+  });
+
+  it('should call  getIndex() method', () => {
+    const fId=0;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(fId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  addMealDetails() method', () => {
+    spyOn(component, 'addMealDetails').and.callThrough();
+    component.addMealDetails();
+    fixture.detectChanges();
+    expect(component.addMealDetails).toHaveBeenCalled();
+  });
+
 });

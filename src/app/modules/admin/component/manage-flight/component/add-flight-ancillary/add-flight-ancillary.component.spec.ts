@@ -21,4 +21,25 @@ describe('AddFlightAncillaryComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call  getFlightDetails() method', () => {
+    spyOn(component, 'getFlightDetails').and.callThrough();
+    component.getFlightDetails();
+    fixture.detectChanges();
+    expect(component.getFlightDetails).toHaveBeenCalled();
+  });
+
+  it('should call  getIndex() method', () => {
+    const fId=0;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(fId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  addAncillaryService() method', () => {
+    spyOn(component, 'addAncillaryService').and.callThrough();
+    component.addAncillaryService();
+    fixture.detectChanges();
+    expect(component.addAncillaryService).toHaveBeenCalled();
+  });
 });

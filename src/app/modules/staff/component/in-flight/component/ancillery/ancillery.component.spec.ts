@@ -26,4 +26,19 @@ describe('AncilleryComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call  getIndex() method', () => {
+    const pId=1;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(pId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  getPassengerDetails() method', () => {
+    spyOn(component, 'getPassengerDetails').and.callThrough();
+    component.getPassengerDetails();
+    fixture.detectChanges();
+    expect(component.getPassengerDetails).toHaveBeenCalled();
+  });
 });

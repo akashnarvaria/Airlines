@@ -27,4 +27,28 @@ describe('EditPassengerComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call  getPassengerDetails() method', () => {
+    spyOn(component, 'getPassengerDetails').and.callThrough();
+    component.getPassengerDetails();
+    fixture.detectChanges();
+    expect(component.getPassengerDetails).toHaveBeenCalled();
+  });
+
+  it('should call  getIndex() method', () => {
+    const pId=0;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(pId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  editPassenger() method', () => {
+    spyOn(component, 'editPassenger').and.callThrough();
+    component.editPassenger();
+    fixture.detectChanges();
+    expect(component.editPassenger).toHaveBeenCalled();
+  });
+
+
 });

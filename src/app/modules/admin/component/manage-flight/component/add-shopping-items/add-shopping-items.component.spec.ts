@@ -22,4 +22,25 @@ describe('AddShoppingItemsComponent', () => {
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
+
+  it('should call  getFlightDetails() method', () => {
+    spyOn(component, 'getFlightDetails').and.callThrough();
+    component.getFlightDetails();
+    fixture.detectChanges();
+    expect(component.getFlightDetails).toHaveBeenCalled();
+  });
+
+  it('should call  onPreview() method', () => {
+    spyOn(component, 'onPreview').and.callThrough();
+    component.onPreview();
+    fixture.detectChanges();
+    expect(component.onPreview).toHaveBeenCalled();
+  });
+
+  it('should call  addItem() method', () => {
+    spyOn(component, 'addItem').and.callThrough();
+    component.addItem();
+    fixture.detectChanges();
+    expect(component.addItem).toHaveBeenCalled();
+  });
 });

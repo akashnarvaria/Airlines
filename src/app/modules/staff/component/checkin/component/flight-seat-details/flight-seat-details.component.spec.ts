@@ -24,4 +24,43 @@ describe('FlightSeatDetailsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should call  getFlightDetailsBySeats() method', () => {
+    spyOn(component, 'getFlightDetailsBySeats').and.callThrough();
+    component.getFlightDetailsBySeats();
+    fixture.detectChanges();
+    expect(component.getFlightDetailsBySeats).toHaveBeenCalled();
+  });
+
+  it('should call  tab() method', () => {
+    const status="";
+    spyOn(component, 'tab').and.callThrough();
+    component.tab(status);
+    fixture.detectChanges();
+    expect(component.tab).toHaveBeenCalled();
+  });
+
+  it('should call  getPassengerDetails() method', () => {
+    spyOn(component, 'getPassengerDetails').and.callThrough();
+    component.getPassengerDetails();
+    fixture.detectChanges();
+    expect(component.getPassengerDetails).toHaveBeenCalled();
+  });
+
+  it('should call  passengerCheckinInPassenger() method', () => {
+    const flightId=1;
+    const seatNo="A1"
+    spyOn(component, 'passengerCheckinInPassenger').and.callThrough();
+    component.passengerCheckinInPassenger(flightId,seatNo);
+    fixture.detectChanges();
+    expect(component.passengerCheckinInPassenger).toHaveBeenCalled();
+  });
+
+  it('should call  passengerCheckinInFlight() method', () => {
+    const seatNo="A1"
+    spyOn(component, 'passengerCheckinInFlight').and.callThrough();
+    component.passengerCheckinInFlight(seatNo);
+    fixture.detectChanges();
+    expect(component.passengerCheckinInFlight).toHaveBeenCalled();
+  });
 });

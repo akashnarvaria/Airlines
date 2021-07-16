@@ -23,4 +23,34 @@ describe('FlightMealComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should call  getFlightDetails() method', () => {
+    spyOn(component, 'getFlightDetails').and.callThrough();
+    component.getFlightDetails();
+    fixture.detectChanges();
+    expect(component.getFlightDetails).toHaveBeenCalled();
+  });
+
+  it('should call  applyFilter() method', () => {
+    spyOn(component, 'applyFilter').and.callThrough();
+    component.applyFilter();
+    fixture.detectChanges();
+    expect(component.applyFilter).toHaveBeenCalled();
+  });
+
+  it('should call  getIndex() method', () => {
+    const fId=0;
+    spyOn(component, 'getIndex').and.callThrough();
+    component.getIndex(fId);
+    fixture.detectChanges();
+    expect(component.getIndex).toHaveBeenCalled();
+  });
+
+  it('should call  onDelete() method', () => {
+    const index=0;
+    spyOn(component, 'onDelete').and.callThrough();
+    component.onDelete(index);
+    fixture.detectChanges();
+    expect(component.onDelete).toHaveBeenCalled();
+  });
+
 });
