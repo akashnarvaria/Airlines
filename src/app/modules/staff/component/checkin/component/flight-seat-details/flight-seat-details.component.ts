@@ -21,10 +21,7 @@ isLoading=false;
 
   ngOnInit(): void {
     this.getFlightDetailsBySeats();
-    this.route.params.subscribe(data=>{
-      this.id=data.id-1;
-      console.log(this.id);
-    });
+    
     this.getPassengerDetails();
   }
 
@@ -32,8 +29,13 @@ isLoading=false;
   getFlightDetailsBySeats(){
     this.isLoading=true;
     this.commonService.getFlightDetails().subscribe(data=>{
-      this.flightDetails=data[this.id].seats;
       this.flightDetail=data;
+      this.route.params.subscribe(queryParams=>{
+        this.id=this.getIndex(+queryParams.id);
+        console.log(this.id);
+      });
+      this.flightDetails=data[this.id].seats;
+      
       console.log(this.flightDetails);
       this.isLoading=false;
     });
@@ -49,6 +51,16 @@ isLoading=false;
       this.passengerDetail=data;
     });
 
+  }
+
+  getIndex(fId:number){
+    console.log(fId);
+    for(let i=0;i<this.flightDetail.length;i++){
+      if(this.flightDetail[i].flightid==fId){
+        return i;
+      }
+    }
+    return -1;
   }
 
   passengerCheckinInPassenger(flightId:number,seatNo:string){

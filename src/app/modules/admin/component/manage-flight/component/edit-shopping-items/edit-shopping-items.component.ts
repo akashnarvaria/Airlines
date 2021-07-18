@@ -13,6 +13,7 @@ export class EditShoppingItemsComponent implements OnInit {
   flightShopDetail:any=[];
   passengerDetails:any=[];
   index:number;
+  flightId:number;
   input:string='';
   isLoading=false;
   itemIndex:number;
@@ -36,9 +37,10 @@ export class EditShoppingItemsComponent implements OnInit {
         this.flightDetails=data;
 
         //getting index
-        this.route.params.subscribe(data=>{
-        this.index=+data.fid;
-        this.itemIndex=+data.itemid;
+        this.route.params.subscribe(queryParams=>{
+          this.flightId=queryParams.fid;
+        this.index=+queryParams.fid;
+        this.itemIndex=+queryParams.itemid;
 
         //getting passenger details
         this.getPassengerDetails();

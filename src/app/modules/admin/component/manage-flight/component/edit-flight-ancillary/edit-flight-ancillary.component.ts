@@ -15,6 +15,7 @@ updateAncillary=new FormGroup({
 flightDetails:any=[];
 flightAncillaryDetail:any=[];
 index:number;
+flightId:number;
 ancillaryIndex:number;
 input:string='';
 passengerDetails:any=[];
@@ -31,9 +32,10 @@ passengerDetails:any=[];
       this.flightDetails=data;
 
       //getting index
-      this.route.params.subscribe(data=>{
-      this.index=this.getIndex(+data.fid);
-      this.ancillaryIndex=+data.aid;
+      this.route.params.subscribe(queryParams=>{
+        this.flightId=+queryParams.fid;
+      this.index=this.getIndex(+queryParams.fid);
+      this.ancillaryIndex=+queryParams.aid;
     });
 
     //geting Ancillary Details

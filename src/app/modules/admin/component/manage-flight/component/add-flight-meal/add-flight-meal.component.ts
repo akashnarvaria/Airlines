@@ -16,6 +16,7 @@ export class AddFlightMealComponent implements OnInit {
     flightDetails:any=[];
     flightMealDetail:any=[];
     index:number;
+    flightId:number;
     input:string='';
       constructor(private commonService:CommonService,private route:ActivatedRoute,private router:Router) { }
     
@@ -30,8 +31,9 @@ export class AddFlightMealComponent implements OnInit {
           this.flightDetails=data;
     
           //getting index
-          this.route.params.subscribe(data=>{
-          this.index=this.getIndex(+data.fid);
+          this.route.params.subscribe(queryParams=>{
+            this.flightId=+queryParams.fid;
+          this.index=this.getIndex(+queryParams.fid);
         });
     
         //geting Ancillary Details

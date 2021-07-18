@@ -11,6 +11,7 @@ export class FlightAncillaryComponent implements OnInit {
   flightDetails:any=[];
   flightAncillaryDetail:any=[];
   index:number;
+  flightId:number;
   input:string='';
     constructor(private commonService:CommonService,private route:ActivatedRoute) { }
   
@@ -23,10 +24,11 @@ export class FlightAncillaryComponent implements OnInit {
       
       this.commonService.getFlightDetails().subscribe(data=>{
         this.flightDetails=data;
-
+        console.log(this.flightDetails);
         //getting index
-        this.route.params.subscribe(data=>{
-        this.index=this.getIndex(+data.fid);
+        this.route.params.subscribe(queryParams=>{
+          this.flightId=+queryParams.fid;
+        this.index=this.getIndex(+queryParams.fid);
       });
 
       //geting Ancillary Details
